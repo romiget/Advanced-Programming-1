@@ -16,7 +16,7 @@ private:
     list<Measurable> measurables;
     Metric dis_func;
 public:
-    MeasurableList(Metric func);
+    MeasurableList(Metric& func);
     void add(Measurable m);
     void setMetric(Metric func);
     map<Measurable, double> createDistanceMap(Measurable m);
