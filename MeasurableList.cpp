@@ -3,5 +3,9 @@
 //
 
 #include "MeasurableList.h"
+#include <list>
+#include <map>
+
+using namespace std;
 
 

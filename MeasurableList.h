@@ -14,7 +14,11 @@ using namespace std;
 class MeasurableList {
 private:
     list<Measurable> measurables;
+    Metric dis_func;
 public:
+    MeasurableList(Metric func);
+    void add(Measurable m);
+    void setMetric(Metric func);
     map<Measurable, double> createDistanceMap(Measurable m);
     list<Measurable> kSmallestValues(map<Measurable, double> map);
     list<Measurable> KNN(Measurable m);
