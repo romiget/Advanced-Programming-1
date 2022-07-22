@@ -3,4 +3,4 @@ project(Advanced_Programming_1)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Advanced_Programming_1 main.cpp)
+add_executable(Advanced_Programming_1 main.cpp Measurable.cpp Measurable.h Flower.cpp Flower.h)
