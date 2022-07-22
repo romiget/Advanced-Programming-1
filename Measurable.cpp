@@ -6,6 +6,10 @@
 #include <string>
 
 using namespace std;
-double distance(Measurable& other) {
+double Measurable::distance(Measurable& other) {
     throw exception();
+}
+
+void Measurable::setMtype(string s) {
+    this->mtype = s;
 }

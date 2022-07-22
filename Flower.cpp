@@ -11,18 +11,13 @@
 
 using namespace std;
 
-string type;
-double cup_width;
-double cup_length;
-double petal_width;
-double petal_length;
-
 Flower::Flower(string &type, double cwidth, double clength, double pwidth, double plength) {
     this->type.assign(type);
     this->cup_width = cwidth;
     this->cup_length = clength;
     this->petal_width = pwidth;
     this->petal_length = plength;
+    this->setMtype("flower");
 }
 
 string &Flower::getType() {
