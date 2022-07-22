@@ -4,8 +4,10 @@
 
 #include "Flower.h"
 #include <string>
+#include <list>
 
 #include "Measurable.h"
+#include "Metric.h"
 
 using namespace std;
 
@@ -43,6 +45,15 @@ double Flower::getPetalLength() const {
     return this->petal_length;
 }
 
-double Flower::distance(Flower &other) const {
-
+double Flower::distance(Flower &other, Metric &func) const {
+    list<double> l1, l2;
+    l1.push_front(this->cup_width);
+    l1.push_front(this->cup_length);
+    l1.push_front(this->petal_width);
+    l1.push_front(this->petal_length);
+    l2.push_front(this->cup_width);
+    l2.push_front(this->cup_length);
+    l2.push_front(this->petal_width);
+    l2.push_front(this->petal_length);
+    return func.metric(l1, l2);
 }

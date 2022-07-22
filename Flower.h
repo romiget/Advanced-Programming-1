@@ -7,6 +7,7 @@
 #define ADVANCED_PROGRAMMING_1_FLOWER_H
 
 #include "Measurable.h"
+#include "Metric.h"
 #include <string>
 
 using namespace std;
@@ -31,7 +32,7 @@ public:
 
     double getPetalLength() const;
 
-    double distance(Flower &other) const;
+    double distance(Flower &other, Metric &func) const;
 };
 
 #endif //ADVANCED_PROGRAMMING_1_FLOWER_H
