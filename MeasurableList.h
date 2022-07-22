@@ -7,8 +7,8 @@
 
 #include "Metric.h"
 #include "Measurable.h"
+#include "MeasurableAndDistance.h"
 #include <list>
-#include <map>
 
 using namespace std;
 class MeasurableList {
@@ -17,11 +17,11 @@ private:
     Metric dis_func;
 public:
     MeasurableList(Metric& func);
-    void add(Measurable m);
-    void setMetric(Metric func);
-    map<Measurable, double> createDistanceMap(Measurable m);
-    list<Measurable> kSmallestValues(map<Measurable, double> map);
-    list<Measurable> KNN(Measurable m);
+    void add(Measurable &m);
+    void setMetric(Metric &func);
+    list<MeasurableAndDistance> createDistanceList(Measurable &m);
+    list<MeasurableAndDistance> kSmallestValues(list<MeasurableAndDistance> &l, int k);
+    list<Measurable> KNN(Measurable &m, int k);
 };
 
 #endif //ADVANCED_PROGRAMMING_1_MEASURABLELIST_H
