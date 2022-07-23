@@ -23,16 +23,6 @@ public:
     Flower(string &type, double cwidth, double clength, double pwidth, double plength);
 
     string &getType();
-
-    double getCupWidth() const;
-
-    double getCupLength() const;
-
-    double getPetalWidth() const;
-
-    double getPetalLength() const;
-
-    double distance(Flower &other, Metric &func) const;
 };
 
 #endif //ADVANCED_PROGRAMMING_1_FLOWER_H

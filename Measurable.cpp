@@ -4,12 +4,18 @@
 
 #include "Measurable.h"
 #include <string>
+#include "Metric.h"
 
 using namespace std;
-double Measurable::distance(Measurable& other) {
-    throw exception();
+
+void Measurable::addAttribute(double att) {
+    this->attributes.push_back(att);
 }
 
-void Measurable::setMtype(string s) {
-    this->mtype = s;
+double Measurable::distance(Measurable& other, Metric& func) {
+    return func.metric(this->getAttributes(), other.getAttributes());
+}
+
+list<double>& Measurable::getAttributes() {
+    return this->attributes;
 }

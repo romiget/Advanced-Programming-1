@@ -6,18 +6,17 @@
 #define ADVANCED_PROGRAMMING_1_MEASURABLE_H
 
 #include <string>
+#include <list>
+#include "Metric.h"
 
 using namespace std;
 class Measurable {
 private:
-    string mtype;
+    list<double> attributes;
 public:
-    double distance(Measurable& other);
-    string& getMtype(){
-        return mtype;
-    }
-protected:
-    void setMtype(string s);
+    void addAttribute(double att);
+    double distance(Measurable& other, Metric& func);
+    list<double>& getAttributes();
 };
 
 #endif //ADVANCED_PROGRAMMING_1_MEASURABLE_H
