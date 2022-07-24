@@ -29,5 +29,6 @@ list<Measurable> MeasurableList::KNN(list<Measurable>& measurables, Metric& metr
 }
 
 list<MeasurableAndDistance> MeasurableList::createDistanceList(list<Measurable> &l, Metric& metric, Measurable &m) {
+    list<MeasurableAndDistance> distances;
 
 }

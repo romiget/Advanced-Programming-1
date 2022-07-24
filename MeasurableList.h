@@ -16,7 +16,7 @@ private:
     static list<MeasurableAndDistance> createDistanceList(list<Measurable>& l, Metric& metric, Measurable &m);
     static list<MeasurableAndDistance> kSmallestValues(list<MeasurableAndDistance> &l, int k);
 public:
-    list<Measurable> KNN(list<Measurable> &l, Metric& metric, Measurable &m, int k);
+    static list<Measurable> KNN(list<Measurable> &l, Metric& metric, Measurable &m, int k);
 };
 
 #endif //ADVANCED_PROGRAMMING_1_MEASURABLELIST_H
