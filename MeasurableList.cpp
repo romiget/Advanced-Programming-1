@@ -7,18 +7,6 @@
 
 using namespace std;
 
-MeasurableList::MeasurableList(Metric& func) {
-    this->dis_func = func;
-}
-
-void MeasurableList::add(Measurable &m) {
-    this->measurables.push_front(m);
-}
-
-void MeasurableList::setMetric(Metric &func) {
-    this->dis_func = func;
-}
-
 list<MeasurableAndDistance> MeasurableList::kSmallestValues(list<MeasurableAndDistance> &l, int k) {
     l.sort();
     for (int i = l.size(); i > k; i--) {
@@ -27,10 +15,10 @@ list<MeasurableAndDistance> MeasurableList::kSmallestValues(list<MeasurableAndDi
     return l;
 }
 
-list<Measurable> MeasurableList::KNN(Measurable &m, int k) {
-    if (k >= this->measurables.size())
+list<Measurable> MeasurableList::KNN(list<Measurable>& measurables, Metric& metric, Measurable &m, int k) {
+    if (k >= measurables.size())
         return measurables;
-    list<MeasurableAndDistance> l = MeasurableList::createDistanceList(m);
+    list<MeasurableAndDistance> l = MeasurableList::createDistanceList(measurables, metric, m);
     l = MeasurableList::kSmallestValues(l, k);
     list<Measurable> knn;
     while(!l.empty()) {
@@ -38,4 +26,8 @@ list<Measurable> MeasurableList::KNN(Measurable &m, int k) {
         l.pop_back();
     }
     return knn;
+}
+
+list<MeasurableAndDistance> MeasurableList::createDistanceList(list<Measurable> &l, Metric& metric, Measurable &m) {
+
 }

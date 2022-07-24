@@ -13,15 +13,10 @@
 using namespace std;
 class MeasurableList {
 private:
-    list<Measurable> measurables;
-    Metric dis_func;
+    static list<MeasurableAndDistance> createDistanceList(list<Measurable>& l, Metric& metric, Measurable &m);
+    static list<MeasurableAndDistance> kSmallestValues(list<MeasurableAndDistance> &l, int k);
 public:
-    MeasurableList(Metric& func);
-    void add(Measurable &m);
-    void setMetric(Metric &func);
-    list<MeasurableAndDistance> createDistanceList(Measurable &m);
-    list<MeasurableAndDistance> kSmallestValues(list<MeasurableAndDistance> &l, int k);
-    list<Measurable> KNN(Measurable &m, int k);
+    list<Measurable> KNN(list<Measurable> &l, Metric& metric, Measurable &m, int k);
 };
 
 #endif //ADVANCED_PROGRAMMING_1_MEASURABLELIST_H
