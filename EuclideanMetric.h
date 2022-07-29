@@ -11,7 +11,7 @@
 using namespace std;
 
 class EuclideanMetric : public Metric {
-    double metric(list<double> l1, list<double> l2) const;
+    double metric(vector<double> l1, vector<double> l2) const;
 };
 
 #endif //ADVANCED_PROGRAMMING_1_EUCLIDEANMETRIC_H

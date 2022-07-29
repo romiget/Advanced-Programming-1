@@ -16,6 +16,6 @@ double Measurable::distance(Measurable& other, Metric& func) {
     return func.metric(this->getAttributes(), other.getAttributes());
 }
 
-list<double>& Measurable::getAttributes() {
+vector<double>& Measurable::getAttributes() {
     return this->attributes;
 }

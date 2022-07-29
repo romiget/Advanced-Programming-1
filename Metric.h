@@ -6,11 +6,13 @@
 #define ADVANCED_PROGRAMMING_1_METRIC_H
 
 #include <list>
+#include <vector>
+
 using namespace std;
 
 class Metric {
 public:
-    virtual double metric(list<double> l1, list<double> l2) const;
+    virtual double metric(vector<double> l1, vector<double> l2) const;
 };
 
 #endif //ADVANCED_PROGRAMMING_1_METRIC_H

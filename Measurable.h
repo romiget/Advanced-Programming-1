@@ -7,16 +7,17 @@
 
 #include <string>
 #include <list>
+#include <vector>
 #include "Metric.h"
 
 using namespace std;
 class Measurable {
 private:
-    list<double> attributes;
+    vector<double> attributes;
 public:
     void addAttribute(double att);
     double distance(Measurable& other, Metric& func);
-    list<double>& getAttributes();
+    vector<double>& getAttributes();
 };
 
 #endif //ADVANCED_PROGRAMMING_1_MEASURABLE_H

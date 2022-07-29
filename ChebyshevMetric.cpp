@@ -5,15 +5,14 @@
 #include "ChebyshevMetric.h"
 #include <cmath>
 
-double ChebyshevMetric::metric(list<double> l1, list<double> l2) const {
+double ChebyshevMetric::metric(vector<double> l1, vector<double> l2) const {
     if (l1.size() != l2.size())
         throw exception();
     double distance = 0;
-    while(!l1.empty()) {
+    auto iterator2 = l2.begin();
+    for (auto iterator1 = l1.begin(); iterator1 != l1.end(); iterator1++, iterator2++) {
         if(abs(l1.front() - l2.front()) > distance)
             distance = abs(l1.front() - l2.front());
-        l1.pop_front();
-        l2.pop_front();
     }
     return distance;
 }

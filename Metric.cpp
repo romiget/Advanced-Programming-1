@@ -4,6 +4,6 @@
 
 #include "Metric.h"
 
-double Metric::metric(list<double> l1, list<double> l2) const {
+double Metric::metric(vector<double> l1, vector<double> l2) const {
     throw exception();
 }

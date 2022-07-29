@@ -8,15 +8,14 @@
 #include "Metric.h"
 #include "Measurable.h"
 #include "MeasurableAndDistance.h"
-#include <list>
 
 using namespace std;
 class MeasurableList {
 private:
-    static list<MeasurableAndDistance> createDistanceList(list<Measurable>& l, Metric& metric, Measurable &m);
-    static list<MeasurableAndDistance> kSmallestValues(list<MeasurableAndDistance> &l, int k);
+    static vector<MeasurableAndDistance> createDistanceList(vector<Measurable>& l, Metric& metric, Measurable &m);
+    static vector<MeasurableAndDistance> kSmallestValues(vector<MeasurableAndDistance> &l, int k);
 public:
-    static list<Measurable> KNN(list<Measurable> &l, Metric& metric, Measurable &m, int k);
+    static vector<Measurable> KNN(vector<Measurable> &l, Metric& metric, Measurable &m, int k);
 };
 
 #endif //ADVANCED_PROGRAMMING_1_MEASURABLELIST_H

@@ -3,32 +3,34 @@
 //
 
 #include "MeasurableList.h"
-#include <list>
+#include <algorithm>
 
 using namespace std;
 
-list<MeasurableAndDistance> MeasurableList::kSmallestValues(list<MeasurableAndDistance> &l, int k) {
-    l.sort();
+vector<MeasurableAndDistance> MeasurableList::kSmallestValues(vector<MeasurableAndDistance> &l, int k) {
+    std::sort(l.begin(), l.end());
     for (int i = l.size(); i > k; i--) {
         l.pop_back();
     }
     return l;
 }
 
-list<Measurable> MeasurableList::KNN(list<Measurable>& measurables, Metric& metric, Measurable &m, int k) {
+vector<Measurable> MeasurableList::KNN(vector<Measurable>& measurables, Metric& metric, Measurable &m, int k) {
     if (k >= measurables.size())
         return measurables;
-    list<MeasurableAndDistance> l = MeasurableList::createDistanceList(measurables, metric, m);
+    vector<MeasurableAndDistance> l = MeasurableList::createDistanceList(measurables, metric, m);
     l = MeasurableList::kSmallestValues(l, k);
-    list<Measurable> knn;
-    while(!l.empty()) {
-        knn.push_front(l.back().getMeasurable());
-        l.pop_back();
+    vector<Measurable> knn;
+    for (int i = 0; i < k; i++) {
+        knn[i] = l[i].getMeasurable();
     }
     return knn;
 }
 
-list<MeasurableAndDistance> MeasurableList::createDistanceList(list<Measurable> &l, Metric& metric, Measurable &m) {
-    list<MeasurableAndDistance> distances;
-
+vector<MeasurableAndDistance> MeasurableList::createDistanceList(vector<Measurable> &l, Metric& func, Measurable &m) {
+    vector<MeasurableAndDistance> distances;
+    for (int i = 0; i < l.size(); i++) {
+        distances[i] = MeasurableAndDistance(l[i], func.metric(l[i].getAttributes(), m.getAttributes()));
+    }
+    return distances;
 }
