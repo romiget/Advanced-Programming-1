@@ -4,22 +4,24 @@
 #include <vector>
 #include <sstream>
 #include <fstream>
+#include <iostream>
 #include "FileHandler.h"
 
 using namespace std;
 
 vector<string> FileHandler::splitLine(string line, char delimiter) {
-    vector<string> resultVector;
+    vector<string> res;
     stringstream stringStream(line);
     string item;
     while (getline(stringStream, item, delimiter)) {
-        resultVector.push_back(item);
+        res.push_back(item);
     }
-    return resultVector;
+    return res;
 }
 
 std::vector<Flower> FileHandler::getFlowers(const string& fileName) {
-    fstream fs(fileName);
+    fstream fs;
+    fs.open(fileName);
     if (!fs) {
         throw exception();
     }
