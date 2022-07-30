@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Flower::Flower(string &type, double cwidth, double clength, double pwidth, double plength) {
+Flower::Flower(string type, double cwidth, double clength, double pwidth, double plength) {
     this->type.assign(type);
     this->addAttribute(cwidth);
     this->addAttribute(clength);

@@ -11,6 +11,7 @@
 using namespace std;
 
 class ManhattanMetric : public Metric {
+public:
     double metric(vector<double> l1, vector<double> l2) const;
 };
 

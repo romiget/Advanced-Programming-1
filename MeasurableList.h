@@ -15,7 +15,7 @@ private:
     static vector<MeasurableAndDistance> createDistanceList(vector<Measurable>& l, Metric& metric, Measurable &m);
     static vector<MeasurableAndDistance> kSmallestValues(vector<MeasurableAndDistance> &l, int k);
 public:
-    static vector<Measurable> KNN(vector<Measurable> &l, Metric& metric, Measurable &m, int k);
+    static vector<Measurable> KNN(vector<Measurable> &l, Metric& metric, Measurable m, int k);
 };
 
 #endif //ADVANCED_PROGRAMMING_1_MEASURABLELIST_H

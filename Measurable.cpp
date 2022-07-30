@@ -56,6 +56,6 @@ string &Measurable::getType() {
     return this->type;
 }
 
-void Measurable::setType(string &s) {
+void Measurable::setType(basic_string<char> s) {
     this->type.assign(s);
 }

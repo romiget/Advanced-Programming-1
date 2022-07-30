@@ -23,7 +23,7 @@ public:
     double distance(Measurable& other, Metric& func);
     vector<double>& getAttributes();
     string &getType();
-    void setType(string& s);
+    void setType(basic_string<char> s);
 };
 
 #endif //ADVANCED_PROGRAMMING_1_MEASURABLE_H

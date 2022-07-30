@@ -15,7 +15,7 @@ vector<MeasurableAndDistance> MeasurableList::kSmallestValues(vector<MeasurableA
     return l;
 }
 
-vector<Measurable> MeasurableList::KNN(vector<Measurable>& measurables, Metric& metric, Measurable &m, int k) {
+vector<Measurable> MeasurableList::KNN(vector<Measurable>& measurables, Metric& metric, Measurable m, int k) {
     if (k >= measurables.size())
         return measurables;
     vector<MeasurableAndDistance> l = MeasurableList::createDistanceList(measurables, metric, m);
@@ -29,8 +29,8 @@ vector<Measurable> MeasurableList::KNN(vector<Measurable>& measurables, Metric& 
 
 vector<MeasurableAndDistance> MeasurableList::createDistanceList(vector<Measurable> &l, Metric& func, Measurable &m) {
     vector<MeasurableAndDistance> distances;
-    for (int i = 0; i < l.size(); i++) {
-        distances[i] = MeasurableAndDistance(l[i], func.metric(l[i].getAttributes(), m.getAttributes()));
+    for (auto & i : l) {
+        distances.emplace_back(i, i.distance(m, func));
     }
     return distances;
 }
