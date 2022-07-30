@@ -12,7 +12,7 @@
 
 using namespace std;
 
-class Flower : Measurable {
+class Flower : public Measurable {
 private:
     string type;
     double cup_width;
@@ -21,7 +21,7 @@ private:
     double petal_length;
 public:
     Flower(string &type, double cwidth, double clength, double pwidth, double plength);
-
+    string toString();
     string &getType();
 };
 

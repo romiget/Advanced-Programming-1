@@ -19,6 +19,13 @@ Flower::Flower(string &type, double cwidth, double clength, double pwidth, doubl
     this->addAttribute(plength);
 }
 
+string Flower::toString() {
+    string s = string();
+    s.append(Measurable::toString());
+    s.append(this->type);
+    return s;
+}
+
 string &Flower::getType() {
     return this->type;
 }

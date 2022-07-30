@@ -15,6 +15,9 @@ class Measurable {
 private:
     vector<double> attributes;
 public:
+    Measurable();
+    explicit Measurable(const string& s);
+    string toString();
     void addAttribute(double att);
     double distance(Measurable& other, Metric& func);
     vector<double>& getAttributes();
