@@ -17,8 +17,9 @@ vector<pair<double, Measurable>> MeasurableList::kSmallestValues(vector<pair<dou
             }
         }
     }
-    for (int i = l.size(); i > k; i--) {
-        l.pop_back();
+    vector<pair<double, Measurable>> res;
+    for (int i = 0; i < k; i++) {
+        res.push_back(l[i]);
     }
     return l;
 }

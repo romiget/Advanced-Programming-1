@@ -30,16 +30,6 @@ Measurable::Measurable(const string& s, string type) {
     this->type.assign(type);
 }
 
-Measurable::Measurable(const Measurable &m) {
-    this->type = string();
-    this->attributes = vector<double>();
-    vector<double> l = m.getAttributes();
-    for (double d : l) {
-        this->addAttribute(d);
-    }
-    this->type.assign(m.getType());
-}
-
 string Measurable::toString() {
     string str = string();
     for (double d : this->attributes) {
@@ -50,6 +40,11 @@ string Measurable::toString() {
     return str;
 }
 
+Measurable::Measurable(const Measurable& measurable) {
+    this->type = measurable.getType();
+    this->attributes = measurable.getAttributes();
+}
+
 void Measurable::addAttribute(double att) {
     this->attributes.push_back(att);
 }
@@ -58,15 +53,13 @@ double Measurable::distance(Measurable& other, Metric& func) {
     return func.metric(this->getAttributes(), other.getAttributes());
 }
 
-vector<double>& Measurable::getAttributes() const {
+vector<double> Measurable::getAttributes() const {
     vector<double> l = this->attributes;
     return l;
 }
 
 string Measurable::getType() const {
-    string str = string();
-    str.assign(this->type);
-    return str;
+    return this->type;
 }
 
 void Measurable::setType(basic_string<char> s) {

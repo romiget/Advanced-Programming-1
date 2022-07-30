@@ -18,11 +18,11 @@ private:
 public:
     Measurable();
     explicit Measurable(const string& s, string type);
-    Measurable(const Measurable& m);
+    Measurable(const Measurable& measurable);
     string toString();
     void addAttribute(double att);
     double distance(Measurable& other, Metric& func);
-    vector<double>& getAttributes() const;
+    vector<double> getAttributes() const;
     string getType() const;
     void setType(basic_string<char> s);
 };
