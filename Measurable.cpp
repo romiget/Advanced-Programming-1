@@ -11,9 +11,10 @@ using namespace std;
 
 Measurable::Measurable() {
     this->attributes = vector<double>();
+    this->type = "";
 }
 
-Measurable::Measurable(const string& s) {
+Measurable::Measurable(const string& s, string type) {
     stringstream str(s);
     string word;
     this->attributes = vector<double>();
@@ -26,13 +27,16 @@ Measurable::Measurable(const string& s) {
             continue;
         }
     }
+    this->type.assign(type);
 }
 
 string Measurable::toString() {
     string str = string();
     for (double d : this->attributes) {
         str.append(to_string(d));
+        str.append(", ");
     }
+    str.append(type);
     return str;
 }
 
@@ -46,4 +50,12 @@ double Measurable::distance(Measurable& other, Metric& func) {
 
 vector<double>& Measurable::getAttributes() {
     return this->attributes;
+}
+
+string &Measurable::getType() {
+    return this->type;
+}
+
+void Measurable::setType(string &s) {
+    this->type.assign(s);
 }

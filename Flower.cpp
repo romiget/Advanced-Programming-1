@@ -25,7 +25,3 @@ string Flower::toString() {
     s.append(this->type);
     return s;
 }
-
-string &Flower::getType() {
-    return this->type;
-}

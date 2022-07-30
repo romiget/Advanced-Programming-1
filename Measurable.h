@@ -13,14 +13,17 @@
 using namespace std;
 class Measurable {
 private:
+    string type;
     vector<double> attributes;
 public:
     Measurable();
-    explicit Measurable(const string& s);
+    explicit Measurable(const string& s, string type);
     string toString();
     void addAttribute(double att);
     double distance(Measurable& other, Metric& func);
     vector<double>& getAttributes();
+    string &getType();
+    void setType(string& s);
 };
 
 #endif //ADVANCED_PROGRAMMING_1_MEASURABLE_H
