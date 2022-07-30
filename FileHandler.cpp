@@ -49,10 +49,12 @@ Flower FileHandler::createFlower(const string &line) {
 }
 
 void FileHandler::fileReader(const vector<Flower>& flowers, fstream& fs, int k) {
-    fstream fout;
-    fout.open("euclidean_output.csv");
-    fout.open("manhattan_output.csv");
-    fout.open("chebyshev_output.csv");
+    fstream euclid;
+    fstream manhattan;
+    fstream chebyshev;
+    euclid.open("euclidean_output.csv", ios::out);
+    manhattan.open("manhattan_output.csv", ios::out);
+    chebyshev.open("chebyshev_output.csv", ios::out);
     string line;
     while(getline(fs, line)) {
         vector<string> flowerString = FileHandler::splitLine(line, ',');
@@ -65,22 +67,21 @@ void FileHandler::fileReader(const vector<Flower>& flowers, fstream& fs, int k) 
         vector<Measurable> euclideanKnn = MeasurableList::KNN((vector<struct Measurable> &) flowers,
                 euclideanMetric, measured, k);
         measured.setType(FileHandler::knnCheck(euclideanKnn));
-        fout = fstream("euclidean_output.csv");
-        fout << measured.getType() << endl;
+        euclid << measured.getType() << endl;
         ChebyshevMetric chebyshevMetric;
         vector<Measurable> chebyshevKnn = MeasurableList::KNN((vector<struct Measurable> &) flowers,
                 chebyshevMetric, measured, k);
         measured.setType(FileHandler::knnCheck(chebyshevKnn));
-        fout = fstream("chebyshev_output.csv");
-        fout << measured.getType() << endl;
+        chebyshev << measured.getType() << endl;
         ManhattanMetric manhattanMetric;
         vector<Measurable> manhattanKnn = MeasurableList::KNN((vector<struct Measurable> &) flowers,
                 manhattanMetric, measured, k);
         measured.setType(FileHandler::knnCheck(manhattanKnn));
-        fout = fstream("manhattan_output.csv");
-        fout << measured.getType() << endl;
+        manhattan << measured.getType() << endl;
     }
-    fout.close();
+    euclid.close();
+    manhattan.close();
+    chebyshev.close();
 }
 
 string FileHandler::knnCheck(vector<Measurable> measurables) {

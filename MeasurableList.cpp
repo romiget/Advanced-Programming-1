@@ -7,8 +7,16 @@
 
 using namespace std;
 
-vector<MeasurableAndDistance> MeasurableList::kSmallestValues(vector<MeasurableAndDistance> &l, int k) {
-    std::sort(l.begin(), l.end());
+vector<pair<double, Measurable>> MeasurableList::kSmallestValues(vector<pair<double, Measurable>> l, int k) {
+    for (int i = 0; i < l.size() - 1; i++) {
+        for (int j = 0; j < l.size() - i - 1; j++) {
+            if (l[j].first > l[j + 1].first) {
+                pair<double, Measurable> temp = l[j];
+                l[j] = l[j + 1];
+                l[j + 1] = temp;
+            }
+        }
+    }
     for (int i = l.size(); i > k; i--) {
         l.pop_back();
     }
@@ -18,19 +26,19 @@ vector<MeasurableAndDistance> MeasurableList::kSmallestValues(vector<MeasurableA
 vector<Measurable> MeasurableList::KNN(vector<Measurable>& measurables, Metric& metric, Measurable m, int k) {
     if (k >= measurables.size())
         return measurables;
-    vector<MeasurableAndDistance> l = MeasurableList::createDistanceList(measurables, metric, m);
+    vector<pair<double, Measurable>> l = MeasurableList::createDistanceList(measurables, metric, m);
     l = MeasurableList::kSmallestValues(l, k);
     vector<Measurable> knn;
     for (int i = 0; i < k; i++) {
-        knn.push_back(l[i].getMeasurable());
+        knn.push_back(l[i].second);
     }
     return knn;
 }
 
-vector<MeasurableAndDistance> MeasurableList::createDistanceList(vector<Measurable> &l, Metric& func, Measurable &m) {
-    vector<MeasurableAndDistance> distances;
+vector<pair<double, Measurable>> MeasurableList::createDistanceList(vector<Measurable> &l, Metric& func, Measurable &m){
+    vector<pair<double, Measurable>> distances;
     for (auto & i : l) {
-        distances.emplace_back(i, i.distance(m, func));
+        distances.emplace_back(i.distance(m, func), i);
     }
     return distances;
 }

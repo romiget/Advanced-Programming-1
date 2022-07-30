@@ -9,5 +9,6 @@ int main(int argc, char* argv[]) {
     fs.open("Unclassified.csv");
     if (!fs)
         throw exception();
-    FileHandler::fileReader(flowers, fs, 3);
+    FileHandler::fileReader(flowers, fs, 13);
+    fs.close();
 }
