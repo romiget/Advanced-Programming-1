@@ -28,7 +28,7 @@ std::vector<Flower> FileHandler::getFlowers(const string& fileName) {
     fstream fs;
     fs.open(fileName);
     if (!fs) {
-        throw exception();
+        throw runtime_error("mila");
     }
     vector<Flower> flowers;
     string line;

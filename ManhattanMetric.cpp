@@ -9,9 +9,8 @@ double ManhattanMetric::metric(vector<double> l1, vector<double> l2) const {
     if (l1.size() != l2.size())
         throw exception();
     double distance = 0;
-    auto iterator2 = l2.begin();
-    for (auto iterator1 = l1.begin(); iterator1 != l1.end(); iterator1++, iterator2++) {
-        distance += abs(l1.front() - l2.front());
+    for (int i = 0; i < l1.size(); i++) {
+        distance += abs(l1[i] - l2[i]);
     }
     return distance;
 }

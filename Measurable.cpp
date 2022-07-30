@@ -49,7 +49,7 @@ void Measurable::addAttribute(double att) {
     this->attributes.push_back(att);
 }
 
-double Measurable::distance(Measurable& other, Metric& func) {
+double Measurable::distance(Measurable& other, Metric& func) const{
     return func.metric(this->getAttributes(), other.getAttributes());
 }
 

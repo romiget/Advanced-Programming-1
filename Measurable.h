@@ -21,7 +21,7 @@ public:
     Measurable(const Measurable& measurable);
     string toString();
     void addAttribute(double att);
-    double distance(Measurable& other, Metric& func);
+    double distance(Measurable& other, Metric& func) const;
     vector<double> getAttributes() const;
     string getType() const;
     void setType(basic_string<char> s);
