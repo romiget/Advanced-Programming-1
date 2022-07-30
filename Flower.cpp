@@ -12,7 +12,7 @@
 using namespace std;
 
 Flower::Flower(string type, double cwidth, double clength, double pwidth, double plength) {
-    this->type.assign(type);
+    this->setType(type);
     this->addAttribute(cwidth);
     this->addAttribute(clength);
     this->addAttribute(pwidth);

@@ -22,7 +22,7 @@ vector<Measurable> MeasurableList::KNN(vector<Measurable>& measurables, Metric& 
     l = MeasurableList::kSmallestValues(l, k);
     vector<Measurable> knn;
     for (int i = 0; i < k; i++) {
-        knn[i] = l[i].getMeasurable();
+        knn.push_back(l[i].getMeasurable());
     }
     return knn;
 }

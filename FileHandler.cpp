@@ -60,7 +60,7 @@ void FileHandler::fileReader(const vector<Flower>& flowers, fstream& fs, int k) 
         for (auto & i : flowerString) {
             flowerData.push_back(stod(i));
         }
-        Flower measured = Flower((string &) "", flowerData[0], flowerData[1], flowerData[2], flowerData[3]);
+        Flower measured = Flower("", flowerData[0], flowerData[1], flowerData[2], flowerData[3]);
         EuclideanMetric euclideanMetric;
         vector<Measurable> euclideanKnn = MeasurableList::KNN((vector<struct Measurable> &) flowers,
                 euclideanMetric, measured, k);
