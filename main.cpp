@@ -1,6 +1,7 @@
 #include <fstream>
 #include "Flower.h"
 #include "FileHandler.h"
+#include <iostream>
 
 using namespace std;
 int main(int argc, char* argv[]) {
@@ -9,6 +10,6 @@ int main(int argc, char* argv[]) {
     fs.open("Unclassified.csv");
     if (!fs)
         throw exception();
-    FileHandler::fileReader(flowers, fs, 13);
+    FileHandler::fileReader(flowers, fs, stoi((string)argv[1]));
     fs.close();
 }
