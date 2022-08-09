@@ -37,6 +37,7 @@ std::vector<Flower> FileHandler::getFlowers(const string& fileName) {
     }
     fs.close();
     return flowers;
+    int x = 2;
 }
 
 Flower FileHandler::createFlower(const string &line) {
