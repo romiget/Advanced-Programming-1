@@ -23,3 +23,4 @@
 # $ g++ --version
 # To run the program, navigate to the CMake folder using $ cd cmake-build-debug, then type "./Advanced_Programming_1 k", while k is the parameter for the function KNN, so how many flowers you want to compare to for the calculation.
 # k values too low might give imprecise results, as not enough samples are taken for comparison, while values too high might also cause inaccuracies, as you will count from most of the samples. Consider that we have 135 classified samples.
+# Note: we have accidentally committed a slight change into the first assignment (only in one line) which isn't affecting the program at all. please be aware of that we have submitted the exercise on the required date.
